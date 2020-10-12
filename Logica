@@ -1,0 +1,107 @@
+package Listas;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class Logica 
+{
+    Scanner Leer = new Scanner (System.in);
+    
+    List<Integer> Datos = new ArrayList<>();
+    int Posicion, Valor, Opc;
+    
+    public void Insertar()
+    {
+        System.out.println("");
+        System.out.println("Ingresa el dato para la lista");
+        Valor=Leer.nextInt();
+        Datos.add(Valor);
+    }
+    
+    public void Mostrar()
+    {
+        if(Datos.size()>0)
+        {
+            System.out.println("");
+            System.out.println("Esta es tu Lista");
+            System.out.println(Datos);
+        }
+        else
+        {
+            System.out.println("No hay datos en tu lista");
+        }
+    }
+    
+    public void Actualizar()
+    {
+        if(Datos.size()>0)
+        {
+            System.out.println("");
+            System.out.println("Estos son los datos que tienes en tu Lista");
+            System.out.println(Datos);
+            System.out.println("¿Que posicion deceas cambiar?");
+            Posicion=Leer.nextInt();
+            System.out.println("¿Que nuevo valor deceas colocar");
+            Valor=Leer.nextInt();
+            Datos.set(Posicion-1,Valor);
+            System.out.println("Ahora tu lista se encuentra asi...");
+            System.out.println(Datos);
+        }
+        else
+        {
+            System.out.println("");
+            System.out.println("Aun no tienes datos dentro en tu lista ");
+        }
+    }
+    
+    public void Borrar()
+    {
+        int x=1;
+        while (x==1)
+        {
+            System.out.println("");
+            System.out.println("Si deceas borrar la lista completa preciona 1");
+            System.out.println("Si deceas borrar un elemento de la lista preciona 2");
+            Opc=Leer.nextInt();
+            if(Opc>0 && Opc<3)
+            {
+                switch(Opc)
+                {
+                    case 1:
+                        Datos.clear();
+                        System.out.println("La Lista ha sido borrada");
+                        x=2;
+                    break;
+                    case 2:
+                        x=2;
+                        if(Datos.size()>0)
+                        {
+                            System.out.println("");
+                            System.out.println("Estos son los datos que tienes en tu Lista");
+                            System.out.println(Datos);
+                            System.out.println("¿Que posicion deceas Borrar?");
+                            Posicion=Leer.nextInt();
+                            if (Posicion <= Datos.size()-1)
+                            {
+                                Datos.remove(Posicion-1);
+                                System.out.println("Ahora tu lista se encuentra asi...");
+                                System.out.println(Datos);
+                            }
+                            else
+                            {
+                                System.out.println("Esa posicion no existe");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("Aun no tienes datos dentro en tu lista ");
+                        }
+                    break;
+                }
+            }
+            else
+            {
+                System.out.println("Esta Opcion no es valida");
+            }
+        }
+    }
+}
