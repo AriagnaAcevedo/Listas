@@ -1,0 +1,49 @@
+package Listas;
+import java.util.Scanner;
+public class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner Leer = new Scanner (System.in);
+        int x=1, Opc=0;
+        
+        Logica obj=new Logica();
+        
+        while(x==1)
+        {
+            System.out.println("");
+            System.out.println("--------------------- Menu ---------------------");;
+            System.out.println("1.- Insertar un dato a la Lista");
+            System.out.println("2.- Mostrar Lista");
+            System.out.println("3.- Actualizar Lista");
+            System.out.println("4.- Borrar Elementos de la Lista o La lista Completa");
+            System.out.println("5.- Salir");
+            Opc=Leer.nextInt();
+            
+            if(Opc>0 && Opc<6)
+            {
+                switch(Opc)
+                {
+                    case 1: obj.Insertar();
+                        break;
+                    case 2: obj.Mostrar();
+                        break;
+                    case 3: obj.Actualizar();
+                        break;
+                    case 4: obj.Borrar();
+                        break;
+                    case 5: System.exit(0);
+                        break;
+                }
+                System.out.println("");
+                System.out.println("Si deceas regresar al menu teclea 1");
+                System.out.println("Si deceas salir teclea 2");
+                x=Leer.nextInt();
+            }
+            else
+            {
+                System.out.println("Lo sentimos el numero ingresado esta fuera de las opciones");
+            }
+        }
+    }
+}
